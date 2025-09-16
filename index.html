@@ -1,218 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=0.95, maximum-scale=1.0, user-scalable=no">
-<title>CAPTAIN HARU OF REQUIN-V</title>
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/shark.gif">
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.95, maximum-scale=1.0, user-scalable=no">
+  <title>CAPTAIN HARU OF REQUIN-V</title>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/shark.gif">
+  <style>
+    :root {
+      --bg: #FEEFF3;
+      --accent: #B07283;
+      --muted: #FFF5F7;
+      --button: #FFD6E0;
+      --ms-bg: #fce8f1;
+    }
 
-  :root{
-    --bg:#FEEFF3;
-    --accent:#B07283;
-    --muted:#FFF5F7;
-    --button:#FFD6E0;
-    --ms-bg:#fce8f1;
-  }
-  html,body{height:100%;margin:0;font-family:'Special Elite',cursive;background:
-    url('https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/bg.gif') no-repeat center center fixed;
-    background-size:cover;display:flex;align-items:flex-start;justify-content:center;padding:16px;box-sizing:border-box;}
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Special Elite', cursive;
+      background:
+        url('https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/bg.gif') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+    }
 
+    .main-container {
+      width: 680px;
+      height: 600px;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+      display: flex;
+      gap: 16px;
+      padding: 14px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
 
-  .main-container {
-    width: 680px;             
-    height: 600px;             
-    background: var(--bg);
-    border: 2px solid var(--accent);
-    border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-    display: flex;
-    gap: 16px;
-    padding: 14px;
-    box-sizing: border-box;
-    overflow: hidden; 
-  }
+    .left-col {
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      box-sizing: border-box;
+    }
 
-  .left-col {
-    width: 200px;               
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    box-sizing: border-box;
-  }
+    .left-col .pfp,
+    .left-col .logo,
+    .left-col .eye-cover {
+      width: 180px;
+      border-radius: 6px;
+      display: block;
+    }
 
-  .left-col .pfp,
-  .left-col .logo,
-  .left-col .eye-cover {
-    width: 180px;              
-    border-radius: 6px;
-    display:block;
-  }
+    .left-col .pfp {
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
 
-  .left-col .pfp { height:180px; object-fit:cover; border-radius:8px; }
-  .left-col .logo { height:56px; object-fit:contain; }
-  .left-col .eye-cover { height:56px; object-fit:cover; }
+    .left-col .logo {
+      height: 56px;
+      object-fit: contain;
+    }
 
-  .socials {
-    width: 180px;
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-    align-items:stretch;
-  }
-  .socials a{
-    display:block;
-    text-align:center;
-    padding:7px 8px;
-    text-decoration:none;
-    background:var(--button);
-    color:var(--accent);
-    border:1px solid var(--accent);
-    border-radius:6px;
-    font-size:13px;
-    line-height:1;
-    box-sizing:border-box;
-    position:relative;
-    overflow:visible;
-  }
-  .socials a:hover{ background:var(--accent); color:#fff; }
+    .left-col .eye-cover {
+      height: 56px;
+      object-fit: cover;
+    }
 
-  .left-buttons { width:180px; display:flex; gap:8px; justify-content:center; }
-  .left-buttons button {
-    flex:1;
-    padding:6px 8px;
-    background:var(--button);
-    border:1px solid var(--accent);
-    border-radius:6px;
-    cursor:pointer;
-    font-family:'Special Elite',cursive;
-  }
-  .left-buttons button:hover{ background:var(--accent); color:#fff; }
+    .socials {
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: stretch;
+    }
 
-  .right-col {
-    flex:1;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    box-sizing:border-box;
-    overflow:hidden; 
-  }
+    .socials a {
+      display: block;
+      text-align: center;
+      padding: 7px 8px;
+      text-decoration: none;
+      background: var(--button);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1;
+      box-sizing: border-box;
+      position: relative;
+      overflow: visible;
+    }
 
-  .right-scroll {
-    flex:1;
-    overflow-y:auto;       
-    padding-right:6px;
-    box-sizing:border-box;
-  }
+    .socials a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
 
-  .box {
-    background:var(--muted);
-    border:1px solid var(--accent);
-    border-radius:6px;
-    padding:10px;
-    box-sizing:border-box;
-  }
+    .left-buttons {
+      width: 180px;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+    }
 
-  .box h2 { margin:0 0 8px 0; font-size:16px; }
-  .box p, .box li { font-size:13px; margin:4px 0; line-height:1.15; }
+    .left-buttons button {
+      flex: 1;
+      padding: 6px 8px;
+      background: var(--button);
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Special Elite', cursive;
+    }
 
-  .trigger {
-    display:block;
-    cursor:pointer;
-    background:var(--button);
-    color:var(--accent);
-    padding:8px;
-    border-radius:6px;
-    border:1px solid var(--accent);
-    font-weight:bold;
-    font-size:13px;
-    user-select:none;
-  }
-  .trigger:hover{ background:var(--accent); color:#fff; }
+    .left-buttons button:hover {
+      background: var(--accent);
+      color: #fff;
+    }
 
-  .dropdown { max-height:0; overflow:hidden; transition:max-height .35s ease; }
-  .dropdown.active{ max-height:800px; transition:max-height .45s cubic-bezier(.2,.9,.2,1); }
-.dropdown .trigger {
-  margin-top: 3px;
-  margin-bottom: 3px;
-}
+    .right-col {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
 
-  .image-bullets { list-style:none; padding-left:0; margin:0; }
-  .image-bullets li { padding-left:22px; position:relative; margin:6px 0; }
-  .image-bullets li::before {
-    content:""; position:absolute; left:0; top:0; width:18px; height:18px;
-    background:url("https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/anchor.gif") no-repeat center;
-    background-size:contain;
-  }
+    .right-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 6px;
+      box-sizing: border-box;
+    }
 
-  .drawbox, .ms-window { border-radius:8px; box-shadow:0 4px 12px rgba(126,85,95,0.12); }
-  .drawbox canvas{ width:100%; height:200px; border-radius:6px; display:block; }
-  .stamps { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
-  button, .trigger, .socials a, .left-buttons button {
-    position:relative; z-index:0;
-  }
-  button::before, .trigger::before, .socials a::before, .left-buttons button::before{
-    content:""; position:absolute; top:2px; left:2px; right:2px; bottom:2px;
-    border:1px dashed var(--accent); border-radius:inherit; z-index:-1; pointer-events:none;
-  }
+    .box {
+      background: var(--muted);
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
 
-  #age-warning { position:fixed; inset:0; background:rgba(0,0,0,0.85); display:flex; align-items:center; justify-content:center; z-index:9999; }
-  #age-warning .warning-box { background:var(--bg); border:3px solid var(--accent); padding:18px; border-radius:12px; max-width:460px; width:90%; text-align:center; box-sizing:border-box; }
+    .box h2 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+    }
 
-  .right-scroll {
-  flex: 1;
-  overflow-y: auto;   
-  overflow-x: hidden; 
-  padding-right: 6px;
-  box-sizing: border-box;
-}
+    .box p,
+    .box li {
+      font-size: 13px;
+      margin: 4px 0;
+      line-height: 1.15;
+    }
 
-.right-scroll > * {
-  max-width: 100%;   
-  box-sizing: border-box;
-}
+    .trigger {
+      display: block;
+      cursor: pointer;
+      background: var(--button);
+      color: var(--accent);
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid var(--accent);
+      font-weight: bold;
+      font-size: 13px;
+      user-select: none;
+    }
 
-.divider {
-  width: 100%;          
-  max-width: 100%;      
-  height: auto;         
-  display: block;       
-  margin: 12px 0;        
-  object-fit: contain;   
-  border: none;         
-  box-sizing: border-box;
-}
+    .trigger:hover {
+      background: var(--accent);
+      color: #fff;
+    }
 
-@media (max-width:680px){
-  .main-container{ width:94%; height: calc(100vh - 36px); flex-direction:column; padding:12px; box-sizing:border-box; }
-  .left-col{ width:100%; flex-direction:row; justify-content:space-between; align-items:center; gap:12px; box-sizing:border-box; }
-  .left-col .pfp{ width:80px; height:80px; object-fit:cover; }
-  .left-col .logo, .left-col .eye-cover{ display:none; }
-  .socials{ width:auto; flex-direction:row; flex-wrap:wrap; gap:6px; align-items:stretch; box-sizing:border-box; }
-  .socials a{ flex:1 1 30%; font-size:12px; padding:6px; text-align:center; display:block; text-decoration:none; border:1px solid var(--accent); border-radius:6px; background:var(--button); color:var(--accent); box-sizing:border-box; }
-  .left-buttons{ width:auto; gap:6px; display:flex; justify-content:center; align-items:center; }
-  .left-buttons button{ flex:1 1 auto; padding:6px 8px; background:var(--button); border:1px solid var(--accent); border-radius:6px; cursor:pointer; font-family:'Special Elite',cursive; box-sizing:border-box; }
-  .right-col{ height:auto; display:flex; flex-direction:column; gap:10px; box-sizing:border-box; }
-  .right-scroll{ max-height:none; overflow:auto; padding-right:6px; box-sizing:border-box; }
-  #anonLetter, #spotifyLink{ width:100%; max-width:100%; min-height:100px; padding:8px; border:1px solid #8d5161; font-family:'Courier New',monospace; box-sizing:border-box; }
-  .ms-actions{ display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px; }
-  #statusLetter{ align-self:center; margin:0; font-size:12px; box-sizing:border-box; }
-}
-</style>
+    .dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+    }
+
+    .dropdown.active {
+      max-height: 800px;
+      transition: max-height .45s cubic-bezier(.2, .9, .2, 1);
+    }
+
+    .dropdown .trigger {
+      margin-top: 3px;
+      margin-bottom: 3px;
+      width: calc(100% - 150px);
+      padding-right: 12px;
+      box-sizing: border-box;
+    }
+
+    .image-bullets {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .image-bullets li {
+      padding-left: 22px;
+      position: relative;
+      margin: 6px 0;
+    }
+
+    .image-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      background: url("https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/anchor.gif") no-repeat center;
+      background-size: contain;
+    }
+
+    .drawbox,
+    .ms-window {
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(126, 85, 95, 0.12);
+    }
+
+    .drawbox canvas {
+      width: 100%;
+      height: 200px;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .stamps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    button,
+    .trigger,
+    .socials a,
+    .left-buttons button {
+      position: relative;
+      z-index: 0;
+    }
+
+    button::before,
+    .trigger::before,
+    .socials a::before,
+    .left-buttons button::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      border: 1px dashed var(--accent);
+      border-radius: inherit;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    #age-warning {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #age-warning .warning-box {
+      background: var(--bg);
+      border: 3px solid var(--accent);
+      padding: 18px;
+      border-radius: 12px;
+      max-width: 460px;
+      width: 90%;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .right-scroll {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 6px;
+      box-sizing: border-box;
+    }
+
+    .right-scroll>* {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .divider {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 12px 0;
+      object-fit: contain;
+      border: none;
+      box-sizing: border-box;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    #play-gif.bounce {
+      animation: bounce 0.5s ease-in-out infinite;
+    }
+
+    .ms-titlebar-bg {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 8px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+      border-radius: 6px 6px 0 0;
+      background: url('assets/titlecard.png') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      position: relative;
+    }
+
+    @media (max-width:680px) {
+      .main-container {
+        width: 94%;
+        height: calc(100vh - 36px);
+        flex-direction: column;
+        padding: 12px;
+        box-sizing: border-box;
+      }
+
+      .left-col {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        box-sizing: border-box;
+      }
+
+      .left-col .pfp {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+      }
+
+      .left-col .logo,
+      .left-col .eye-cover {
+        display: none;
+      }
+
+      .socials {
+        width: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: stretch;
+        box-sizing: border-box;
+      }
+
+      .socials a {
+        flex: 1 1 30%;
+        font-size: 12px;
+        padding: 6px;
+        text-align: center;
+        display: block;
+        text-decoration: none;
+        border: 1px solid var(--accent);
+        border-radius: 6px;
+        background: var(--button);
+        color: var(--accent);
+        box-sizing: border-box;
+      }
+
+      .left-buttons {
+        width: auto;
+        gap: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .left-buttons button {
+        flex: 1 1 auto;
+        padding: 6px 8px;
+        background: var(--button);
+        border: 1px solid var(--accent);
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Special Elite', cursive;
+        box-sizing: border-box;
+      }
+
+      .right-col {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-sizing: border-box;
+      }
+
+      .right-scroll {
+        max-height: none;
+        overflow: auto;
+        padding-right: 6px;
+        box-sizing: border-box;
+      }
+
+      #anonLetter,
+      #spotifyLink {
+        width: 100%;
+        max-width: 100%;
+        min-height: 100px;
+        padding: 8px;
+        border: 1px solid #8d5161;
+        font-family: 'Courier New', monospace;
+        box-sizing: border-box;
+      }
+
+      .ms-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      #statusLetter {
+        align-self: center;
+        margin: 0;
+        font-size: 12px;
+        box-sizing: border-box;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
   <div id="age-warning">
     <div class="warning-box">
       <p><strong>MINORS + ANTIS DNI!</strong></p>
       <p>SITE CONTAINS NSFW, 18+ AND ADULT CONTENT STRICTLY.<br>
-      ONLINE SAFETY ACT IS ALREADY BAD, LEARN TO RESPECT WARNINGS AND DON'T ADD ANYMORE ISSUES TO IT, VTUBING ALREADY
-      IS NOT FOR KIDS.</p>
-      <p>site can be viewed on mobile without fucking up the formatting, this was made for functionality than aesthetics.</p>
-      <button id="proceed-btn" style="background:var(--accent);color:#fff;padding:8px 12px;border-radius:6px;border:none;margin-top:10px;">Proceed</button>
+        ONLINE SAFETY ACT IS ALREADY BAD, LEARN TO RESPECT WARNINGS AND DON'T ADD ANYMORE ISSUES TO IT, VTUBING ALREADY
+        IS NOT FOR KIDS.</p>
+      <p>site can be viewed on mobile without fucking up the formatting, this was made for functionality than
+        aesthetics.</p>
+      <button id="proceed-btn"
+        style="background:var(--accent);color:#fff;padding:8px 12px;border-radius:6px;border:none;margin-top:10px;">Proceed</button>
     </div>
   </div>
 
@@ -222,14 +479,16 @@
     <aside class="left-col" aria-label="Left column">
       <img class="pfp" src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/pfp.jpg" alt="VTuber PFP">
       <img class="logo" src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/logo.png" alt="Site Logo">
-      <img class="eye-cover" src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/vtubercover.gif" alt="Eye Cover">
+      <img class="eye-cover" src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/vtubercover.gif"
+        alt="Eye Cover">
 
       <nav class="socials" aria-label="Social links">
         <a href="https://x.com/HayazameHaruRVT" target="_blank" rel="noreferrer">Twitter</a>
         <a href="https://aethy.com/@hayazameharu" target="_blank" rel="noreferrer">Aethy</a>
         <a href="https://kick.com/harurequinvt" target="_blank" rel="noreferrer">Kick</a>
         <a href="https://pomf.tv/stream/HaruRequinVT" target="_blank" rel="noreferrer">Pomf.tv</a>
-        <a href="https://odysee.com/@HaruHayazameRVT:1?r=HaYakzb6vc5JgMPua7BBmHUD5AQxmSpn" target="_blank" rel="noreferrer">Clips</a>
+        <a href="https://odysee.com/@HaruHayazameRVT:1?r=HaYakzb6vc5JgMPua7BBmHUD5AQxmSpn" target="_blank"
+          rel="noreferrer">Clips</a>
         <a href="https://subscribestar.adult/haru-hayazame-requin-v" target="_blank" rel="noreferrer">Donations</a>
         <a href="#" target="_blank" rel="noreferrer">REQUIN-V Group</a>
       </nav>
@@ -244,94 +503,126 @@
           <p style="margin:0;">PROPERTY OF REQUIN-V MILITARY.</p>
         </div>
 
-<!-- Main Dropdown -->
-<div class="box">
-  <div class="trigger" onclick="this.nextElementSibling.classList.toggle('active')">▼ VTUBER TOS, INFO & LORE</div>
-  <div class="dropdown">
-    <div style="padding-top:8px;">
-
-      <!-- Rules & TOS (nested fuck this) -->
-      <div class="trigger" onclick="this.nextElementSibling.classList.toggle('active')">▶ RULES & TOS</div>
-      <div class="dropdown">
-        <ul class="image-bullets">
-          <li>Has not much boundaries with the model, NSFW fanarts allowed as long as it's not stealing or used in something illegal.</li>
-          <li>VTuber's pilot life is strictly separate from character, interactions are roleplays.</li>
-          <li>Model should not be used in political propaganda or illegal work strictly.</li>
-        </ul>
-      </div>
-      <!-- VTuber Info (nested) -->
-      <div class="trigger" onclick="this.nextElementSibling.classList.toggle('active')">▶ TALENT INFO</div>
-      <div class="dropdown">
-        <ul class="image-bullets">
-          <li>GENDER: BIO ( ♂️ )</li>
-          <li>SPECIES: Megalodon Merfolk</li>
-          <li>PRONOUNS: She/Her, He/Him</li>
-          <li>POSITION: Naval Admiral</li>
-          <li>CANON AGE: 20 ADULT</li>
-          <li>CANON BIRTHDATE: 01/05</li>
-          <li>CANON HEIGHT: 145 cm.</li>
-          <li>OSHI MARK: 💮⚓</li>
-          <li>TAGS: #HaruRVART #HaruRVNSFW #HaruRVAI</li>
-          <li>VIEWER FANNAME: Lagoon Rookies</li>
-          <li>FAV FOOD: Grilled Beluga Steak</li>
-          <li>FAV DRINK: Rootbeer</li>
-        </ul>
-      </div>
-      <!-- Lore (nested) -->
-      <div class="trigger" onclick="this.nextElementSibling.classList.toggle('active')">▶ LORE</div>
-      <div class="dropdown">
-        <ul class="image-bullets">
-          <p>"The crowned prince of our Blue Lagoon Kingdom. One of the few last standing rare albino shark merfolk left after the damn Dolphin king went on an attacking rampage with his army, taking down Merfolk rulers after rulers, and then displaying their tails like some sort of sick twisted trophy...I really hate Dolphins...they are nothing but menaces to society...I hope his highness is able to enjoy a relaxing vacation and rest after our war's victory, I heard he had picked up a new hobby to kill some time." - ???</p>
-          <h3>Achievements</h3>
-          <li>Lead the Battle of the Great Blue Lagoon (Victory).</li>
-          <li>Liberate the species of Shark Merfolks against Dolphin Merfolk's Slavery (Victory).</li>
-          <li>The first prince recorded in the Merfolk species history to partake in war directly.</li>
-          <li>Consecutively owns 3 total of Shark Hearts medals.</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-        <!-- Model Ref -->
+        <!-- Main Dropdown -->
         <div class="box">
-          <div class="trigger" onclick="this.nextElementSibling.classList.toggle('active')">▼ Model Ref</div>
+          <div class="trigger" onclick="this.nextElementSibling.classList.toggle('active')">▷ VTUBER TOS, INFO & LORE
+          </div>
           <div class="dropdown">
             <div style="padding-top:8px;">
-              <p style="margin:0 0 8px 0;">TAGS: #HaruRVART #HaruRVNSFW #HaruRVAI</p>
-              <img src="assets/ref.png" alt="Model Reference" style="width:100%;border-radius:6px;">
+
+              <!-- Rules & TOS (nested fuck this) -->
+              <div class="trigger" onclick="this.nextElementSibling.classList.toggle('active')">▷ RULES & TOS</div>
+              <div class="dropdown">
+                <ul class="image-bullets">
+                  <li>Has not much boundaries with the model, NSFW fanarts allowed as long as it's not stealing or used
+                    in something illegal.</li>
+                  <li>VTuber's pilot life is strictly separate from character, interactions are roleplays.</li>
+                  <li>Model should not be used in political propaganda or illegal work strictly.</li>
+                </ul>
+              </div>
+              <!-- VTuber Info (nested) -->
+              <div class="trigger" onclick="this.nextElementSibling.classList.toggle('active')">▷ TALENT INFO</div>
+              <div class="dropdown">
+                <ul class="image-bullets">
+                  <h3>BASIC INFO</h3>
+                  <li>GENDER: BIO ( ♂️ )</li>
+                  <li>SPECIES: Megalodon Merfolk</li>
+                  <li>PRONOUNS: She/Her, He/Him</li>
+                  <li>POSITION: Naval Admiral</li>
+                  <li>CANON AGE: 20 ADULT</li>
+                  <li>CANON BIRTHDATE: 01/05</li>
+                  <li>CANON HEIGHT: 145 cm.</li>
+                  <li>OSHI MARK: 💮⚓</li>
+                  <li>TAGS: #HaruRVART #HaruRVNSFW #HaruRVAI</li>
+                  <li>VIEWER FANNAME: Lagoon Rookies</li>
+                  <li>FAV FOOD: Grilled Beluga Steak</li>
+                  <li>FAV DRINK: Rootbeer</li>
+                  <img src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/divider.gif" class="divider"
+                    alt="Divider">
+                  <h3>LIKES</h3>
+                  <li>MEAT</li>
+                  <li>WATCHING MUKBANGS FOR THE TASTY SEAFOOD</li>
+                  <li>TRAPS AND HENTAI GAMES</li>
+                  <li>HAS A KINK FOR OVIPOSITION (Captain is a degen, he likes to give birth to eggs a lot)</li>
+                  <li>BEING CALLED A GIRL, IT FUELS CAPTAIN'S EGO ABOUT BEING A TRAP</li>
+                </ul>
+              </div>
+              <!-- Lore (nested) -->
+              <div class="trigger" onclick="this.nextElementSibling.classList.toggle('active')">▷ LORE</div>
+              <div class="dropdown">
+                <ul class="image-bullets">
+                  <p>"The crowned prince of our Blue Lagoon Kingdom. One of the few last standing rare albino shark
+                    merfolk left after the damn Dolphin king went on an attacking rampage with his army, taking down
+                    Merfolk rulers after rulers, and then displaying their tails like some sort of sick twisted
+                    trophy...I really hate Dolphins...they are nothing but menaces to society...I hope his highness is
+                    able to enjoy a relaxing vacation and rest after our war's victory, I heard he had picked up a new
+                    hobby to kill some time." - ???</p>
+                  <h3>Achievements</h3>
+                  <li>Lead the Battle of the Great Blue Lagoon (Victory).</li>
+                  <li>Liberate the species of Shark Merfolks against Dolphin Merfolk's Slavery (Victory).</li>
+                  <li>The first prince recorded in the Merfolk species history to partake in war directly.</li>
+                  <li>Consecutively owns 3 total of Shark Hearts medals.</li>
+                </ul>
+              </div>
+
             </div>
           </div>
         </div>
 
+        <!-- Model Ref -->
+        <div class="box">
+          <div class="trigger" onclick="this.nextElementSibling.classList.toggle('active')">▷ Model Ref</div>
+          <div class="dropdown">
+            <div style="padding-top:8px;">
+              <p style="margin:0 0 8px 0;">TAGS: #HaruRVART #HaruRVNSFW #HaruRVAI</p>
+              <img id="model-ref-img" src="assets/ref.png" alt="Model Reference"
+                style="width:100%;border-radius:6px;cursor:pointer;">
+            </div>
+          </div>
+        </div>
+        <script src="zoom.js"></script>
+
         <!-- Mascots -->
         <div class="box">
-          <div class="trigger" onclick="this.nextElementSibling.classList.toggle('active')">▼ Mascots</div>
+          <div class="trigger" onclick="this.nextElementSibling.classList.toggle('active')">▷ Mascots</div>
           <div class="dropdown">
             <div style="padding-top:8px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;">
-              <img src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/mascot1.png" alt="Mascot 1" style="width:110px;border-radius:6px;">
-              <img src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/mascot2.png" alt="Mascot 2" style="width:110px;border-radius:6px;">
+              <img src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/mascot1.png" alt="Mascot 1"
+                style="width:110px;border-radius:6px;">
+              <img src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/mascot2.png" alt="Mascot 2"
+                style="width:110px;border-radius:6px;">
               <div style="flex:1;min-width:120px;">
-                <p style="margin:0;"><b>Del Pilar</b> Based on the real life shiip <a href="https://en.wikipedia.org/wiki/BRP_Gregorio_del_Pilar_(PS-15)" target="_blank" rel="noreferrer">BRP Gregorio Del Pilar</a>, he is Captain's more playful mascot, his pattern is based on the Philippine Eagle.</p>
+                <p style="margin:0;"><b>Del Pilar</b> Based on the real life shiip <a
+                    href="https://en.wikipedia.org/wiki/BRP_Gregorio_del_Pilar_(PS-15)" target="_blank"
+                    rel="noreferrer">BRP Gregorio Del Pilar</a>, he is Captain's more playful mascot, his pattern is
+                  based on the Philippine Eagle.</p>
                 <br></br>
-                <p style="margin:0;"><b>Missouri</b> Based on the popular ship <a href="https://en.wikipedia.org/wiki/USS_Missouri_(BB-63)" target="_blank" rel="noreferrer">USS Missouri</a>, he is the more rough housing one and his pattern is based on the Bald Eagle, he is Captain's emergency gun, he has a gun strapped on his back, ready to be used at any time when needed.</p>
+                <p style="margin:0;"><b>Missouri</b> Based on the popular ship <a
+                    href="https://en.wikipedia.org/wiki/USS_Missouri_(BB-63)" target="_blank" rel="noreferrer">USS
+                    Missouri</a>, he is the more rough housing one and his pattern is based on the Bald Eagle, he is
+                  Captain's emergency gun, he has a gun strapped on his back, ready to be used at any time when needed.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
         <div class="box" style="display:flex;flex-direction:column;gap:8px;">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <img src="assets/note.gif" alt="Play" style="width:28px;height:28px;">
-            <strong>Captain's Playlist</strong>
+          <div class="ms-titlebar ms-titlebar-bg">
+            <img src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/playlist.gif" alt="Play" style="width:28px;height:28px;">
+            <span class="ms-title" style="color:#000;">Captain's Playlist</span>
+            <div class="ms-buttons" style="display:flex;gap:6px;">
+              <button class="ms-btn">_</button><button class="ms-btn">□</button><button class="ms-btn">X</button>
+            </div>
           </div>
 
           <div style="display:flex;gap:8px;flex-direction:column;">
-            <select id="song-select" style="width:100%;padding:6px;border-radius:6px;border:1px solid var(--accent);background:#fffafc;font-family:'Special Elite',cursive;font-size:13px;">
+            <select id="song-select"
+              style="width:100%;padding:6px;border-radius:6px;border:1px solid var(--accent);background:#fffafc;font-family:'Special Elite',cursive;font-size:13px;">
             </select>
-            <button id="play-btn" class="trigger" style="display:flex;align-items:center;justify-content:center;gap:8px;">
-              <img id="play-gif" src="assets/note.gif" alt="Play" style="width:20px;height:20px;">
+            <button id="play-btn" class="trigger"
+              style="display:flex;align-items:center;justify-content:center;gap:8px;">
+              <img id="play-gif" src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/note.gif" alt="Play" style="width:20px;height:20px;">
               <span id="play-text">Play</span>
             </button>
             <span id="song-title" style="font-size:13px;color:var(--accent);">No song selected</span>
@@ -345,58 +636,77 @@
             <img src="assets/stamp2.png" alt="stamp" width="70" height="40">
             <img src="assets/stamp3.jpg" alt="stamp" width="70" height="40">
             <img src="assets/stamp4.gif" alt="stamp" width="70" height="40">
-            <img src="assets/stamp5.png" alt="stamp" width="70" height="40">
+            <img src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/stamp5.png" alt="stamp" width="70" height="40">
 
-                  <nav class="socials" aria-label="Social links">
-                         <a href="assets/Hetalia Deco Set.zip" download>Hetalia Pixel</a><p>I made this for free</p>
-                  </nav>
-                   
+            <nav class="socials" aria-label="Social links">
+              <a href="assets/Hetalia Deco Set.zip" download>Hetalia Pixel</a>
+              <p>I made this for free</p>
+            </nav>
+
           </div>
         </div>
-        
-        <img src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/divider.gif" class="divider" alt="Divider">
+
+        <img src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/divider.gif" class="divider"
+          alt="Divider">
 
         <div class="box">
-        <p style="margin-top:8px;">KEEP ANON ARTWORKS AND LETTERS RESPECTFUL THIS IS BEING MODERATED BY PEOPLE WHO HAS ACCESS TO THE SUBMISSIONS, 18+ CONTENT IS ALLOWED THOUGH, ANONS ARE POSTED ON TWITTER.</p>
+          <p style="margin-top:8px;">KEEP ANON ARTWORKS AND LETTERS RESPECTFUL THIS IS BEING MODERATED BY PEOPLE WHO HAS
+            ACCESS TO THE SUBMISSIONS, 18+ CONTENT IS ALLOWED THOUGH, ANONS ARE POSTED ON TWITTER.</p>
         </div>
 
         <div class="box drawbox" style="padding-bottom:8px;">
-        
-          <h3 style="margin:0 0 8px 0;background:var(--accent);color:#fff;padding:6px;border-radius:6px;font-weight:normal;">Masterpieces Submission</h3>
+          <h3 class="ms-titlebar-bg" style="margin:0 0 8px 0; justify-content:center; color:#000;">Masterpieces
+            Submission</h3>
           <canvas id="drawboxcanvas" style="border:1px solid var(--accent);background:#fffdfd;"></canvas>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;align-items:center;justify-content:center;">
-            <input type="color" oninput="stroke_color=this.value" title="Pick color" style="height:32px;border:1px solid var(--accent);background:#fffdfd;">
-            <input type="range" min="1" max="20" value="2" oninput="stroke_width=this.value" title="Brush size" style="flex:1;">
+            <input type="color" oninput="stroke_color=this.value" title="Pick color"
+              style="height:32px;border:1px solid var(--accent);background:#fffdfd;">
+            <input type="range" min="1" max="20" value="2" oninput="stroke_width=this.value" title="Brush size"
+              style="flex:1;">
             <button onclick="Restore()" title="Undo">⎌ Undo</button>
             <button onclick="Clear()" title="Clear">🗑️ Clear</button>
             <button id="submit" title="Submit">📤 Submit</button>
           </div>
           <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;">
-            <div class="swatch" style="width:22px;height:22px;background:#f9a;border:1px solid #000;cursor:pointer" onclick="stroke_color='#f9a'"></div>
-            <div class="swatch" style="width:22px;height:22px;background:#f77;border:1px solid #000;cursor:pointer" onclick="stroke_color='#f77'"></div>
-            <div class="swatch" style="width:22px;height:22px;background:#ffcd66;border:1px solid #000;cursor:pointer" onclick="stroke_color='#ffcd66'"></div>
-            <div class="swatch" style="width:22px;height:22px;background:#74f974;border:1px solid #000;cursor:pointer" onclick="stroke_color='#74f974'"></div>
-            <div class="swatch" style="width:22px;height:22px;background:#5ff;border:1px solid #000;cursor:pointer" onclick="stroke_color='#5ff'"></div>
-            <div class="swatch" style="width:22px;height:22px;background:#89f;border:1px solid #000;cursor:pointer" onclick="stroke_color='#89f'"></div>
-            <div class="swatch" style="width:22px;height:22px;background:#e8f;border:1px solid #000;cursor:pointer" onclick="stroke_color='#e8f'"></div>
-            <div class="swatch" style="width:22px;height:22px;background:#000;border:1px solid #000;cursor:pointer" onclick="stroke_color='#000'"></div>
-            <div class="swatch" style="width:22px;height:22px;background:#fff;border:1px solid #aaa;cursor:pointer" onclick="stroke_color='#fff'"></div>
+            <div class="swatch" style="width:22px;height:22px;background:#f9a;border:1px solid #000;cursor:pointer"
+              onclick="stroke_color='#f9a'"></div>
+            <div class="swatch" style="width:22px;height:22px;background:#f77;border:1px solid #000;cursor:pointer"
+              onclick="stroke_color='#f77'"></div>
+            <div class="swatch" style="width:22px;height:22px;background:#ffcd66;border:1px solid #000;cursor:pointer"
+              onclick="stroke_color='#ffcd66'"></div>
+            <div class="swatch" style="width:22px;height:22px;background:#74f974;border:1px solid #000;cursor:pointer"
+              onclick="stroke_color='#74f974'"></div>
+            <div class="swatch" style="width:22px;height:22px;background:#5ff;border:1px solid #000;cursor:pointer"
+              onclick="stroke_color='#5ff'"></div>
+            <div class="swatch" style="width:22px;height:22px;background:#89f;border:1px solid #000;cursor:pointer"
+              onclick="stroke_color='#89f'"></div>
+            <div class="swatch" style="width:22px;height:22px;background:#e8f;border:1px solid #000;cursor:pointer"
+              onclick="stroke_color='#e8f'"></div>
+            <div class="swatch" style="width:22px;height:22px;background:#000;border:1px solid #000;cursor:pointer"
+              onclick="stroke_color='#000'"></div>
+            <div class="swatch" style="width:22px;height:22px;background:#fff;border:1px solid #aaa;cursor:pointer"
+              onclick="stroke_color='#fff'"></div>
           </div>
           <p id="status" style="margin-top:6px;font-size:12px;"></p>
         </div>
 
         <div class="box ms-window anon-letters-box" style="padding:0;">
-          <div class="ms-titlebar" style="display:flex;justify-content:space-between;align-items:center;padding:6px;border-bottom:1px solid rgba(0,0,0,0.03);border-radius:6px 6px 0 0;background:linear-gradient(to right,#8d5161,#c2808e);color:#fff;">
-            <span class="ms-title">Anonymous Letters</span>
+          <div class="ms-titlebar ms-titlebar-bg">
+            <img src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/letter.gif" alt="Play" style="width:28px;height:28px;">
+            <span class="ms-title" style="color:#000;">Anon Letters</span>
             <div class="ms-buttons" style="display:flex;gap:6px;">
               <button class="ms-btn">_</button><button class="ms-btn">□</button><button class="ms-btn">X</button>
             </div>
           </div>
           <div class="ms-content" style="padding:10px;background:#fffafc;">
-            <textarea id="anonLetter" placeholder="Write your anonymous letter here..." rows="6" style="width:365px;min-height:100px;resize:vertical;border:1px solid #8d5161;padding:8px;font-family:'Courier New',monospace;"></textarea>
-            <input type="text" id="spotifyLink" placeholder="Optional Spotify link (https://open.spotify.com/...)" style="width:365px;margin-top:8px;border:1px solid #8d5161;padding:8px;">
+            <textarea id="anonLetter" placeholder="Write your anonymous letter here..." rows="6"
+              style="width:365px;min-height:100px;resize:vertical;border:1px solid #8d5161;padding:8px;font-family:'Courier New',monospace;"></textarea>
+            <input type="text" id="spotifyLink" placeholder="Optional Spotify link (https://open.spotify.com/...)"
+              style="width:365px;margin-top:8px;border:1px solid #8d5161;padding:8px;">
             <div class="ms-actions" style="display:flex;justify-content:flex-end;gap:8px;margin-top:8px;">
-              <button id="submitLetter" class="ms-submit" style="background:#e6c5d0;border:1px solid #8d5161;padding:8px 12px;font-weight:bold;font-family:'Special Elite',cursive;">Submit Letter</button>
+              <button id="submitLetter" class="ms-submit"
+                style="background:#e6c5d0;border:1px solid #8d5161;padding:8px 12px;font-weight:bold;font-family:'Special Elite',cursive;">Submit
+                Letter</button>
               <p id="statusLetter" style="align-self:center;margin:0;font-size:12px;"></p>
             </div>
           </div>
@@ -406,98 +716,33 @@
           <strong>Times Viewed:</strong> <span id="visitor-count">0</span>
         </div>
 
-        <img src="assets/divider.gif" class="divider" alt="Divider">
+        <img src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/divider.gif" class="divider" alt="Divider">
+        <p>layout and js by Hayazame Haru</p>
 
-      </div> 
+      </div>
     </section>
 
-  </div> 
+  </div>
 
   <script src="harudrawbox.js"></script>
   <script src="haruanonletters.js"></script>
+  <script src="playlist.js"></script>
+  <script src="dropdown-arrows.js"></script>
 
   <script>
-    const playBtn = document.getElementById('play-btn');
-    const playText = document.getElementById('play-text');
-    const select = document.getElementById('song-select');
-    const audio = document.getElementById('audio');
-    const title = document.getElementById('song-title');
-
-    const MAX_VOLUME = 0.2;
-
-    const songs = [
-      { name: 'Golden (Tagalog Version) · HUNTR/X · Felicity Kyle Napuli · Venisse Siy · Maronne Cruz · KPop Demon Hunters Cast', file: 'https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/music/Golden (Tagalog Version).mp3' },
-      { name: 'BTS - Mic drop (FULL EDITION)', file: 'https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/music/MIC Drop (Steve Aoki Remix) (Full Length Edition).mp3' },
-      { name: 'NSR - VS SAYU (JP)', file: 'https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/music/vs SAYU jp.mp3' },
-      { name: 'Sabaton - To Hell and Back', file: 'https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/music/Sabaton - To Hell and Back.mp3' },
-      { name: '2NE1 + BingBang - Lollipop', file: 'https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/music/Lollipop (Bigbang).mp3' },
-      { name: 'i-dle (아이들) - Nxde', file: 'https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/music/Nxde.mp3' }
-    ];
-
-    songs.forEach((song,index)=>{
-      const option = document.createElement('option');
-      option.value = index;
-      option.textContent = song.name;
-      select.appendChild(option);
-    });
-
-    let current = 0;
-    audio.src = songs[current].file;
-    title.innerText = songs[current].name;
-    select.value = current;
-
-    function loadSong(index, autoplay=true){
-      fadeOut(audio, ()=>{
-        audio.src = songs[index].file;
-        title.innerText = songs[index].name;
-        audio.load();
-        if(autoplay) fadeIn(audio);
-        playText.innerText = autoplay ? 'Pause' : 'Play';
-      });
-      select.value = index;
-    }
-
-    function fadeIn(audioEl){
-      audioEl.volume = 0;
-      audioEl.play();
-      let vol = 0;
-      const fade = setInterval(()=>{
-        vol += 0.02;
-        if(vol >= MAX_VOLUME){ vol = MAX_VOLUME; clearInterval(fade); }
-        audioEl.volume = vol;
-        playText.innerText = 'Pause';
-      },50);
-    }
-
-    function fadeOut(audioEl, callback){
-      let vol = audioEl.volume;
-      const fade = setInterval(()=>{
-        vol -= 0.02;
-        if(vol <= 0){ vol = 0; clearInterval(fade); audioEl.pause(); playText.innerText = 'Play'; if(callback) callback(); }
-        audioEl.volume = Math.max(0,vol);
-      },50);
-    }
-
-    select.addEventListener('change', ()=>{ current = parseInt(select.value); loadSong(current,true); });
-    playBtn.addEventListener('click', ()=>{ if(audio.paused) fadeIn(audio); else fadeOut(audio); });
-    audio.addEventListener('ended', ()=>{ playText.innerText = 'Play'; });
-
-  </script>
-
-  <script>
-    document.querySelectorAll('.trigger').forEach(trigger=>{
-      trigger.addEventListener('click', ()=> {
+    document.querySelectorAll('.trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
         const dd = trigger.nextElementSibling;
-        if(!dd) return;
+        if (!dd) return;
         dd.classList.toggle('active');
       });
     });
 
-    document.getElementById('proceed-btn').addEventListener('click', ()=>{
+    document.getElementById('proceed-btn').addEventListener('click', () => {
       document.getElementById('age-warning').style.display = 'none';
     });
 
-    (function(){
+    (function () {
       const countKey = 'haru-hayazame-views';
       const display = document.getElementById('visitor-count');
       let count = parseInt(localStorage.getItem(countKey)) || 0;
@@ -507,42 +752,51 @@
     })();
   </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"
+    integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
-    var bgm = new Howl({ src:['https://hayazame-haru.github.io/talent-info/assets/music/BG.mp3'], loop:true, volume:0 });
+    var bgm = new Howl({ src: ['https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/music/BG.mp3'], loop: true, volume: 0 });
     bgm.play();
-    setTimeout(()=>{ bgm.fade(0,0.5,4000); },500);
+    setTimeout(() => { bgm.fade(0, 0.5, 4000); }, 500);
   </script>
 
   <style>
-    * { cursor: url('Cursor.ani'), url('Cursor.gif'), auto !important; }
+    * {
+      cursor: url('Cursor.ani'), url('Cursor.gif'), auto !important;
+    }
   </style>
 
-  <audio id="hoverSound" preload="auto"><source src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/music/hover.wav" type="audio/mpeg"></audio>
-  <audio id="clickSound" preload="auto"><source src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/music/click.wav" type="audio/mpeg"></audio>
+  <audio id="hoverSound" preload="auto">
+    <source src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/music/hover.wav" type="audio/mpeg">
+  </audio>
+  <audio id="clickSound" preload="auto">
+    <source src="https://cdn.jsdelivr.net/gh/hayazame-haru/talent-info/assets/music/click.wav" type="audio/mpeg">
+  </audio>
   <script>
     const hoverSound = document.getElementById('hoverSound');
     const clickSound = document.getElementById('clickSound');
     hoverSound.volume = 0.2; clickSound.volume = 0.2;
     const interactiveElements = [...document.querySelectorAll('.trigger'), ...document.querySelectorAll('button'), ...document.querySelectorAll('.socials a')];
-    interactiveElements.forEach(el=>{
-      el.addEventListener('mouseenter', ()=>{ try{ hoverSound.currentTime = 0; hoverSound.play(); }catch(e){} });
-      el.addEventListener('click', ()=>{ try{ clickSound.currentTime = 0; clickSound.play(); }catch(e){} });
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => { try { hoverSound.currentTime = 0; hoverSound.play(); } catch (e) { } });
+      el.addEventListener('click', () => { try { clickSound.currentTime = 0; clickSound.play(); } catch (e) { } });
     });
   </script>
 
   <script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".trigger").forEach(trigger => {
-    trigger.addEventListener("click", () => {
-      const dropdown = trigger.nextElementSibling;
-      if (dropdown && dropdown.classList.contains("dropdown")) {
-        dropdown.classList.toggle("active");
-      }
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".trigger").forEach(trigger => {
+        trigger.addEventListener("click", () => {
+          const dropdown = trigger.nextElementSibling;
+          if (dropdown && dropdown.classList.contains("dropdown")) {
+            dropdown.classList.toggle("active");
+          }
+        });
+      });
     });
-  });
-});
-</script>
+  </script>
 
 </body>
+
 </html>
